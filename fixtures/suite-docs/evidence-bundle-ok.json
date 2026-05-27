@@ -1,0 +1,7 @@
+{
+  "evidence_bundle_version": "0.1",
+  "bundle": { "id": "demo", "subject": "x", "created_at": "2026-05-27T00:00:00Z", "creator": "x" },
+  "items": [
+    { "id": "a", "path": "content/a.md", "media_type": "text/markdown", "sha256": "0000000000000000000000000000000000000000000000000000000000000001", "size_bytes": 1 }
+  ]
+}

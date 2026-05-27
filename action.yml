@@ -1,0 +1,44 @@
+name: "Kinetic Gain Suite Conformance Runner"
+description: "Walk a mixed-protocol directory of Kinetic Gain Suite JSON documents, route each via kg-protocol-detect, validate that every required top-level block per spec is present, and fail the build when malformed JSON, unknown protocols, or missing required blocks are detected."
+author: "mizcausevic-dev"
+branding:
+  icon: "check-square"
+  color: "green"
+
+inputs:
+  dir:
+    description: "Directory containing *.json Kinetic Gain Suite documents (mixed protocols supported)."
+    required: true
+  comment-on-pr:
+    description: "Post the Markdown summary as a PR comment. 'auto' (default) posts only on pull_request events; 'true' / 'false' force the behavior."
+    required: false
+    default: "auto"
+  fail-on-high:
+    description: "Fail the run when any high-severity finding is present (default 'true')."
+    required: false
+    default: "true"
+  fail-on-unknown:
+    description: "Treat 'unknown-protocol' findings as high severity (default 'true')."
+    required: false
+    default: "true"
+  skip:
+    description: "Comma-separated list of path substrings to skip when walking the directory."
+    required: false
+  github-token:
+    description: "Token used to post the PR comment (defaults to GITHUB_TOKEN)."
+    required: false
+    default: ${{ github.token }}
+
+outputs:
+  total-files:
+    description: "Number of JSON files analyzed."
+  high-findings:
+    description: "Count of high-severity findings."
+  conformant-docs:
+    description: "Number of docs that have all required top-level blocks for their detected protocol."
+  unknown-docs:
+    description: "Number of JSON files that did not match any known Suite spec."
+
+runs:
+  using: "node20"
+  main: "dist/index.js"

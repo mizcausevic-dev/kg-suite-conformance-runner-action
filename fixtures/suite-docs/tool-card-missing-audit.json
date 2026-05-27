@@ -1,0 +1,6 @@
+{
+  "tool_card_version": "0.1",
+  "tool": { "name": "x", "server_id": "x", "version": "1.0.0", "mcp_server_uri": "https://example.com", "description": "x" },
+  "schema": { "input_schema_inline": {} },
+  "safety": { "side_effect_class": "read", "reversible": true, "rate_limited": false, "pii_exposure": "none", "secrets_exposure": "none", "human_approval_required": false }
+}
