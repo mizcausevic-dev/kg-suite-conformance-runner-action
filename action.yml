@@ -1,5 +1,5 @@
 name: "Kinetic Gain Suite Conformance Runner"
-description: "Walk a mixed-protocol directory of Kinetic Gain Suite JSON documents, route each via kg-protocol-detect, validate that every required top-level block per spec is present, and fail the build when malformed JSON, unknown protocols, or missing required blocks are detected."
+description: "Walk a mixed-protocol directory of Kinetic Gain Suite JSON docs and validate each against its spec contract."
 author: "mizcausevic-dev"
 branding:
   icon: "check-square"
